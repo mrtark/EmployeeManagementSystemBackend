@@ -2,13 +2,22 @@ package com.example.employee.business.dto;
 
 import com.example.employee.annotation.EmployeeUniqueEmail;
 import com.example.employee.annotation.EmployeeUniqueTelephone;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Date;
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Log4j2
 public class EmployeeDto {
     private Long id;
     @NotNull(message = "{employee.department.validation.constraints.NotNull.message}")
