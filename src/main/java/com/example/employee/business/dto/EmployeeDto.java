@@ -1,5 +1,8 @@
 package com.example.employee.business.dto;
 
+import com.example.employee.annotation.EmployeeUniqueEmail;
+import com.example.employee.annotation.EmployeeUniqueTelephone;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -19,10 +22,12 @@ public class EmployeeDto {
     @NotNull(message = "{employee.email.validation.constraints.NotNull.message}")
     @Email(message = "{employee.email.validation.constraints.property.message}")
     @Size(max = 80, message = "{employee.email.validation.constraints.max.message}")
+    @EmployeeUniqueEmail
     private String emailAdress;
     @NotNull(message = "{employee.telephone.validation.constraints.NotNull.message}")
     @Pattern(regexp = "^(\\+\\d{9,0}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
             message = "{employee.telephone.validation.constraints.pattern.regex.message}")
+    @EmployeeUniqueTelephone
     private String telephoneNumber;
     @NotNull(message = "{employee.password.validation.constraints.NotNull.message}")
     @Pattern(regexp = " ^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$",
