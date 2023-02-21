@@ -33,8 +33,8 @@ public class CustomErrorHandleWebRequest implements ErrorController {
             Map<String, String> validationMistake = new HashMap<>();
             for (FieldError reffieldErrorList:fieldErrorList) {
                 validationMistake.put(reffieldErrorList.getField(),reffieldErrorList.getDefaultMessage());
-                error.setValidationError(validationMistake);
             }
+            error.setValidationError(validationMistake);
         }
         return error;
     }
