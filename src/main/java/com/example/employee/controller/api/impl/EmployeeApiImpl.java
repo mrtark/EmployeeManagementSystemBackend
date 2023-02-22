@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -47,7 +46,7 @@ public class EmployeeApiImpl implements IEmployeeApi {
     }
 
     @Override
-    @GetMapping(value = "/apiEmployeeList")
+    @GetMapping(value = "apiEmployeeList")
     public ResponseEntity<List<EmployeeDto>> apiEmployeeList() {
         return ResponseEntity.ok(iEmployeeService.employeeList());
     }

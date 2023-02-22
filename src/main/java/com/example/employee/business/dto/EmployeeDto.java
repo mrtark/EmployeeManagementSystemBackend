@@ -34,13 +34,13 @@ public class EmployeeDto {
     @EmployeeUniqueEmail
     private String emailAdress;
     @NotNull(message = "{employee.telephone.validation.constraints.NotNull.message}")
-    @Pattern(regexp = "^(\\+\\d{9,0}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
+    @Pattern(regexp = "^(\\+\\d{1,2}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$",
             message = "{employee.telephone.validation.constraints.pattern.regex.message}")
     @EmployeeUniqueTelephone
     private String telephoneNumber;
     @NotNull(message = "{employee.password.validation.constraints.NotNull.message}")
-    @Pattern(regexp = " ^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$",
-            message = "{employee.password.validation.constraints.pattern.regex.message}")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",
+           message = "{employee.password.validation.constraints.pattern.regex.message}")
     private String passwd;
     private Date createDate;
 
