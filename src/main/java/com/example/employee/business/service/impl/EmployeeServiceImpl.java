@@ -59,6 +59,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     }
 
     @Override
+    @Transactional
     public EmployeeDto employeeUpdate(Long id, EmployeeDto employeeDto) {
         EmployeeDto foundDto = employeeFind(id);
         if (foundDto!=null){
@@ -71,7 +72,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
             EmployeeEntity updateEntity = iEmployeeRepository.save(DtoToEntity(foundDto));
             iEmployeeRepository.save(updateEntity);
             foundDto.setId(updateEntity.getId());
-            System.out.println(foundDto.getId() + "ID Data Update Success.");
+            log.info(foundDto.getId() + ": ID Data Update Success.");
             return foundDto;
         }
         return null;

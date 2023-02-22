@@ -2,6 +2,7 @@ package com.example.employee;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -18,6 +19,7 @@ import java.util.TimeZone;
 		SecurityAutoConfiguration.class
 })
 @EnableJpaAuditing(auditorAwareRef = "auditorAwareBeanMethod")
+@EntityScan(basePackages = "com.example.employee.data.entity")
 public class EmployeeApplication {
 	@PostConstruct
 	public void init(){

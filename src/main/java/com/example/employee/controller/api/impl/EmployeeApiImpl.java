@@ -83,8 +83,9 @@ public class EmployeeApiImpl implements IEmployeeApi {
 
     @Override
     @PutMapping({"", "/{id}"})
-    public ResponseEntity<EmployeeDto> apiEmployeeUpdate(@PathVariable(name = "id",required = false)
-                                                             @Valid @RequestBody Long id, EmployeeDto employeeDto) {
+    public ResponseEntity<EmployeeDto> apiEmployeeUpdate(
+            @PathVariable(name = "id",required = false) Long id,
+            @Valid @RequestBody  EmployeeDto employeeDto) {
         if (id == null) {
             log.error("404 Not Found!");
             return ResponseEntity.notFound().build();
@@ -92,9 +93,8 @@ public class EmployeeApiImpl implements IEmployeeApi {
             log.error("400 Bad Request!");
             return ResponseEntity.badRequest().build();
         }
-        EmployeeDto data =(EmployeeDto) iEmployeeService.employeeUpdate(id,employeeDto);
-        log.info("Found Data: " + data);
-        return ResponseEntity.ok(data);
+        log.info("Found Data: " + iEmployeeService.employeeUpdate(id,employeeDto));
+        return ResponseEntity.ok(iEmployeeService.employeeUpdate(id,employeeDto));
     }
 
     @Override

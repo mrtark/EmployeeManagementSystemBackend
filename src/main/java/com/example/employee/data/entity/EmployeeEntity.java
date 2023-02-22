@@ -2,8 +2,8 @@ package com.example.employee.data.entity;
 
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -24,6 +24,7 @@ public class EmployeeEntity extends BaseEntity implements Serializable {
     private String surname;
     private String emailAdress;
     private String telephoneNumber;
+    @Column(name = "password")
     private String passwd;
 
 }

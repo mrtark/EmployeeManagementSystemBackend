@@ -9,7 +9,7 @@
 ## RolMap
 ### Bean
 ```sh
-ModelMapper
+ModelMapperB
 PasswordEncoder
 OpenApiConfiguration
 ```
